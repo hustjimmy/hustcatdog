@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>HustCatDog后台管理</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <!-- Favicons -->
+    <link rel="icon" th:href="@{/static/img/favicon.ico}">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">HustCatDog</a>
+    <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" th:href="@{/dashboard/logout}">注销</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">
+                            <span data-feather="file"></span>
+                            返回首页
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/dashboard}">
+                            <span data-feather="file"></span>
+                            返回Dashboard首页
+                        </a>
+                    </li>
+
+                </ul>
+
+
+
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <h3>修改动物信息</h3>
+            <form method="post" th:action="@{/dashboard/updateAnimal}">
+                <div class="form-group">
+                    <label>id</label>
+                    <input th:value="${animalToUpdate.getId()}" name="id" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>名字</label>
+                    <input th:value="${animalToUpdate.getName()}" name="name" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>性别</label><br/>
+                    <div class="form-check form-check-inline">
+                        <input th:checked="${animalToUpdate.getGender()=='公'}" class="form-check-input" type="radio" name="gender"  value="公">
+                        <label class="form-check-label">公</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input th:checked="${animalToUpdate.getGender()=='母'}" class="form-check-input" type="radio" name="gender"  value="母">
+                        <label class="form-check-label">母</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input th:checked="${animalToUpdate.getGender()=='未知'}" class="form-check-input" type="radio" name="gender"  value="未知">
+                        <label class="form-check-label">未知</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>类别</label>
+                    <input th:value="${animalToUpdate.getType()}" name="type" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>区域</label>
+                    <select name="area" class="form-control">
+                        <option th:selected="${animalToUpdate.getArea()=='沁苑'}">沁苑</option>
+                        <option th:selected="${animalToUpdate.getArea()=='韵苑'}">韵苑</option>
+                        <option th:selected="${animalToUpdate.getArea()=='紫菘'}">紫菘</option>
+                        <option th:selected="${animalToUpdate.getArea()=='其他'}">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>介绍</label>
+                    <input th:value="${animalToUpdate.getIntroduction()}" name="introduction" type="text" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">保存修改</button>
+            </form>
+
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

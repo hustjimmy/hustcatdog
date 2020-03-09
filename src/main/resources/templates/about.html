@@ -1,0 +1,83 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Album example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="icon" th:href="@{/static/img/favicon.ico}">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/album.css}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a th:href="@{/}" class="navbar-brand d-flex align-items-center">
+                <!--
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                -->
+                <strong>首页</strong>
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<main role="main" class="flex-shrink-0">
+<!--<main role="main">-->
+    <div class="container">
+        <h1 class="mt-5">关于这个网站</h1>
+        <p class="lead">华科很大，这里生活了几万名师生职工，也生活着许许多多可爱的小动物。宿舍区和教学楼附近都有好多小猫小狗，沁苑的苑主，
+            东九花坛里的一家狸花，西十二对面不怕人的小橘猫，南一楼的委屈巴巴...我记得有一年寒假我和前女友提前很多天返校，
+            到东边的时候 是晚上了，小猫们趴在韵苑外的坡上，叫的那叫个凄惨，大概是整个过年期间喂他们的人都走了。我们到东小门的小卖部买了好多火腿肠，
+            再又跑到韵苑喂它们。虽然还有一年半才离开华科，但是已经开始准备找工作的我感觉一只脚已经迈出华科校园了，回想起高考完第一次和她一起
+            骑小黄车绕南一楼一圈，仿佛还在昨天。<p class="lead">这个网站就是为了给华科的猫猫狗狗们做个档案，免得将来记忆把他们搞丢了。</p>
+        </p>
+    </div>
+</main>
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<!--
+<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+-->
+
+
+</body>
+</html>

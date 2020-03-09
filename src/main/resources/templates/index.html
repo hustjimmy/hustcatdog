@@ -1,0 +1,107 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Hust Cat Dog</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="icon" href="img/favicon.ico">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/css/album.css}">
+</head>
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a th:href="@{/}" class="navbar-brand d-flex align-items-center">
+<!--
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+-->
+                <strong>首页</strong>
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>华科 喵星人 汪星人</h1>
+            <p class="lead text-muted"> 这里收录了华科的猫猫狗狗们 </p>
+            <p>
+                <a th:href="@{/admin}" class="btn btn-primary my-2">登录</a>
+                <a th:href="@{/about}" class="btn btn-secondary my-2">关于</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4" th:each="animal : ${animals}">
+                    <div class="card mb-4 shadow-sm">
+                        <!--<img style="width:348px;height:255px;" src="@{animalImages/${animal.getId()}.png}"  alt="Oops!"/>-->
+                        <!--<img style="width:348px;height:255px;" th:attr="src=@{|/img/animalImages/${animal.getId()}.png|}"  alt="Oops!"/>-->
+                        <!--<img style="width:348px;height:255px;" th:src="@{${'img/animalImages/' + animal.getId() + '.png'}}" alt="Oops!"/>-->
+                        <img style="width:348px;height:255px;" th:src="@{${'/images/' + animal.getId() + '.png'}}"/>
+                        <!--<img th:src="@{${'/img/icons/' + subTask.issueTypeId + '.png'}}" title="TODO" />-->
+
+                        <div class="card-body">
+                            <p class="card-text" th:text="${animal.getName()}">
+                            </p>
+                            <p class="card-text" th:text="${animal.getArea()}">
+                            </p>
+                            <p class="card-text" th:text="${animal.getIntroduction()}">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+        <p>Hust Cat Dog 华科 喵星人 汪星人</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+</body>
+</html>

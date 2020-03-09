@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="life.zkf.hustcatdog.mapper.AnimalMapper">
+
+    <select id="queryAnimalList" resultType="Animal">
+        select * from animal
+    </select>
+
+    <select id="queryAnimalById" resultType="Animal">
+        select * from animal where id = #{id}
+    </select>
+
+    <select id="queryAnimalByArea" resultType="Animal">
+        select * from animal where area = #{area}
+    </select>
+
+    <select id="queryAnimalByType" resultType="Animal">
+        select * from animal where type = #{type}
+    </select>
+
+    <insert id="addAnimal" parameterType="Animal">
+        insert into animal (name, gender, type, area, introduction) values (#{name}, #{gender}, #{type}, #{area}, #{introduction})
+    </insert>
+
+    <update id="updateAnimal" parameterType="Animal">
+        update animal set name=#{name}, gender=#{gender}, type=#{type}, area=#{area}, introduction=#{introduction} where id = #{id}
+    </update>
+
+    <delete id="deleteAnimal" parameterType="int">
+        delete from animal where id=#{id}
+    </delete>
+
+
+</mapper>
